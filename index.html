@@ -3,61 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Algorithm Learning Reflections</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Hello, I'm Namrutha J Daivajna 👋</h1>
-        <p>I am passionate about technology and problem-solving. Here's a glimpse of my work:</p>
-    </header>
+    <div class="container">
+        <h1>Algorithm Learning Reflections</h1>
+        
+        <!-- Home Page Section -->
+        <section>
+            <h2>Home Page – Introduction</h2>
+            <p><strong>Course Overview:</strong></p>
+            <p>The Design and Analysis of Algorithms course is centered around understanding and evaluating the core algorithms and data structures that form the backbone of computer science. It dives into both the theoretical and practical aspects of algorithm design, focusing on efficiency and optimization. The course provides the tools needed to analyze the performance of algorithms and apply them to solve real-world problems effectively.</p>
 
-    <section>
-        <h2>🛠️ Projects</h2>
-        <ul>
-            <li><strong>Project 1</strong>: A short description of your project1.</li>
-            <li><strong>Project 2</strong>: A short description of another project2.</li>
-        </ul>
+            <p><strong>Data Structures and Algorithms Studied:</strong></p>
+            <ul>
+                <li><strong>Binary Search Trees (BST):</strong> Used for efficient searching, insertion, and deletion operations, depending on tree balance.</li>
+                <li><strong>Hashing:</strong> Provides fast data retrieval through hash functions and hash tables.</li>
+                <li><strong>Sorting Algorithms:</strong> Explored algorithms like Quick Sort, Merge Sort, Bubble Sort, Insertion Sort, Selection Sort, and Heap Sort.</li>
+                <li><strong>String Matching Algorithms:</strong> Includes Naive String Matching, Knuth-Morris-Pratt (KMP), Rabin-Karp, and Boyer-Moore.</li>
+                <li><strong>Graph Algorithms:</strong> Included Dijkstra’s algorithm, Bellman-Ford, DFS, BFS, Prim’s, and Kruskal’s algorithms for network-related problems.</li>
+            </ul>
 
-        <h2>🚀 Skills</h2>
-        <ul>
-            <li>C++, Python, JavaScript</li>
-            <li>Data Structures and Algorithms</li>
-            
-        </ul>
+            <p><strong>Connecting the Course with Real-Time Applications:</strong></p>
+            <ul>
+                <li><strong>Binary Search Trees and Hashing:</strong> Used in databases for indexing and search operations.</li>
+                <li><strong>Sorting Algorithms:</strong> Essential in databases, file systems, and websites for arranging and filtering data.</li>
+                <li><strong>String Matching Algorithms:</strong> Critical in search engines, bioinformatics, and text editors.</li>
+                <li><strong>Graph Algorithms:</strong> Important for networking, social networks, and geographic systems.</li>
+            </ul>
+        </section>
 
-        <h2>🌐 Find Me Online</h2>
-        <ul>
-            <li><a href="https://github.com/your-github-username" target="_blank">GitHub</a></li>
-            <li><a href="https://linkedin.com/in/your-linkedin-profile" target="_blank">LinkedIn</a></li>
-        </ul>
+        <!-- Problem Space and Findings Section -->
+        <section>
+            <h2>1. Problem Space and Findings</h2>
+            <p><strong>Project Overview:</strong></p>
+            <p>For our course project, we focused on the design and optimization of a smart city layout, with a primary emphasis on unemployment rate monitoring and job distribution. The problem space emerged from the challenge of managing urban unemployment and ensuring equitable access to job opportunities in a data-driven city environment. We arrived at this problem space by analyzing issues such as high unemployment rates in certain regions and the lack of efficient systems for distributing job opportunities.</p>
+            <p>Inspired by the increasing adoption of smart city technologies like IoT sensors, data analytics, and AI, we developed a system that integrates job distribution and unemployment monitoring within the city’s infrastructure. The system uses graph-based routing, job-matching algorithms, and predictive models to connect individuals with appropriate job opportunities. By applying these algorithms, we aim to improve job access and reduce unemployment disparities across different regions of the city.</p>
+            <p>Our research, based on white papers and case studies, highlighted how smart cities leverage technology to collect and analyze data for decision-making, especially in areas like urban planning and economic development. These insights guided our approach in creating a solution that addresses both the economic and operational challenges cities face in managing job markets.</p>
+        </section>
 
-        <h2>Portfolio Topic</h2>
-        <dl>
-            <dt>Course Name</dt>
-            <dd>Design and Analysis of Algorithm(DAA)</dd>
+        <!-- Problem Definition and Team Details Section -->
+        <section>
+            <h2>2. Problem Definition and Team Details</h2>
+            <p><strong>Problem Definition:</strong></p>
+            <p>This system addresses economic inequality by analysing unemployment data, monitoring job availability, and optimizing job distribution. The goal is to reduce unemployment rates and ensure fair job allocation based on skills, location, and industry demands.</p>
+            <p>The project focuses on improving the employment rate and ensuring fair job distribution across the city. The system will:</p>
+            <ul>
+                <li>Monitor unemployment in various districts.</li>
+                <li>Match job seekers to jobs based on profiles and market demand.</li>
+                <li>Predict and recommend policies for future unemployment trends.</li>
+            </ul>
 
-            <dt>Course Code</dt>
-            <dd>24ECSC205</dd>
+            <p><strong>Business Cases and Team Members:</strong></p>
+            <ul>
+                <li><strong>Job Vacancy Database Management (Shreya Hadikar):</strong> Uses Quick Sort and Merge Sort to efficiently manage job listings. It serves as the foundation for other business cases.</li>
+                <li><strong>Unemployment Rate Calculation (Priyanka Badiger):</strong> Uses Dijkstra’s and Bellman-Ford algorithms to calculate the unemployment rate and analyze efficient pathways to employment.</li>
+                <li><strong>Job Matching System (Aishwarya Talikoti):</strong> Uses Knuth-Morris-Pratt and Rabin-Karp for efficient job matching based on skills, qualifications, and preferences.</li>
+                <li><strong>Job Distribution Optimization (Shreya Hadikar):</strong> Uses Kruskal’s, Prim’s, and Floyd’s algorithms to optimize job distribution based on geographic location and industry demands.</li>
+                <li><strong>Job Search System (Priyanka Badiger):</strong> Uses Brute Force String Matching for job seekers to search jobs based on preferences such as location and salary.</li>
+                <li><strong>Economic Inequality Reporting (Aishwarya Talikoti):</strong> Uses Warshall’s and BFS algorithms to analyze patterns of economic inequality across different city sectors.</li>
+            </ul>
 
-            <dt>Name</dt>
-            <dd>Namrutha J Daivajna</dd>
+            <p><strong>Team Members:</strong></p>
+            <ul>
+                <li><strong>Shreya Hadikar (Project Lead & Job Distribution Optimization):</strong> Coordinates the project and focuses on optimizing job distribution across the city.</li>
+                <li><strong>Priyanka Badiger (Unemployment Rate Calculation & Job Search System):</strong> Leads the development of algorithms to calculate unemployment rates and manage job search systems.</li>
+                <li><strong>Aishwarya Talikoti (Job Matching & Economic Inequality Reporting):</strong> Focuses on developing the job matching system and analyzing economic inequalities within the city.</li>
+            </ul>
+        </section>
 
-            <dt>SRN</dt>
-            <dd>01FE23BCS180</dd>
-
-            <dt>Course Instructor</dt>
-            <dd>Arundati Aralimatti</dd>
-
-            <dt>University</dt>
-            <dd>KLE TECHNOLOGICAL UNIVERSITY</dd>
-
-            <dt>Portfolio Topic/Domain</dt>
-            <dd>Design and Analysis of Algorithms</dd>
-        </dl>
-
-        <blockquote>“The only way to do great work is to love what you do.” – Steve Jobs</blockquote>
-    </section>
+        <a href="index.html">Back to Home</a>
+    </div>
 </body>
 </html>
