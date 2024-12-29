@@ -1,153 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>W3.CSS Template</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> SINCHANA Student Portfolio DAA </title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #fce4ec; /* Soft pink background */
+            color: #333;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        header {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f06292, #ff80ab); /* Gradient shades of pink */
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            animation: bounce 1.5s infinite alternate;
+        }
+
+        header p {
+            font-size: 1.2em;
+        }
+
+        .bubble, .flower {
+            position: absolute;
+            animation: move 10s infinite;
+        }
+
+        .bubble {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            filter: blur(2px);
+        }
+
+        .flower {
+            width: 40px;
+            height: 40px;
+            background-color: #ff4081; /* Vibrant pink flower */
+            border-radius: 50%;
+            filter: blur(1px);
+            animation-duration: 12s;
+        }
+
+        .flower:nth-child(1) {
+            top: 10%;
+            left: 20%;
+            background-color: #ff4081;
+            animation-delay: 0s;
+            transform: scale(1);
+        }
+
+        .flower:nth-child(2) {
+            top: 40%;
+            left: 60%;
+            background-color: #fbc02d;
+            animation-delay: 2s;
+            transform: scale(1.2);
+        }
+
+        .flower:nth-child(3) {
+            top: 70%;
+            left: 80%;
+            background-color: #8e24aa;
+            animation-delay: 4s;
+            transform: scale(0.9);
+        }
+
+        .flower:nth-child(4) {
+            top: 20%;
+            left: 80%;
+            background-color: #00bcd4;
+            animation-delay: 1s;
+            transform: scale(1.1);
+        }
+
+        .flower:nth-child(5) {
+            top: 50%;
+            left: 10%;
+            background-color: #ff5722;
+            animation-delay: 3s;
+            transform: scale(1);
+        }
+
+        .flower:nth-child(6) {
+            top: 30%;
+            left: 50%;
+            background-color: #4caf50;
+            animation-delay: 5s;
+            transform: scale(1.3);
+        }
+
+        .flower:nth-child(7) {
+            top: 80%;
+            left: 30%;
+            background-color: #e91e63;
+            animation-delay: 2s;
+            transform: scale(1.1);
+        }
+
+        @keyframes move {
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+            50% {
+                transform: translateY(-30px) translateX(20px);
+            }
+            100% {
+                transform: translateY(0) translateX(0);
+            }
+        }
+
+        nav {
+            background-color: #f48fb1; /* Soft pink nav bar */
+            text-align: center;
+            padding: 15px 0;
+            animation: slideIn 1s ease-out;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.1em;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #f06292; /* Darker pink on hover */
+            color: white;
+        }
+
+        #top-images {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        #top-images img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px;
+        }
+
+        #about {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #fff;
+            margin: 40px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            animation: fadeIn 2s ease-in;
+        }
+
+        #about p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        footer {
+            background-color: #d81b60; /* Deep pink footer */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
 
-<!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar">
-  <br>
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
-  <div class="w3-container">
-    <h3 class="w3-padding-64"><b>Company<br>Name</b></h3>
-  </div>
-  <div class="w3-bar-block">
-    <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
-    <a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Showcase</a> 
-    <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Services</a> 
-    <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Designers</a> 
-    <a href="#packages" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Packages</a> 
-    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
-  </div>
-</nav>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
 
-<!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
-  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
-  <span>Company Name</span>
-</header>
+        <h1>Sinchana SM <br> Design and Analysis of Algorithms Portfolio</h1>
+        <p>My Student Portfolio of DAA</p>
+    </header>
 
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="course-projects.html">Course Projects</a>
+        <a href="learning-reflection.html">Learning Reflections</a>
+        <a href="student-details.html">Student Details</a>
+    </nav>
 
-<!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:340px;margin-right:40px">
+    <section id="top-images">
+        <img src="https://raw.githubusercontent.com/akgmage/go-web/master/templates/assets/DSA.png" alt="DSA Image">
+    </section>
 
-  <!-- Header -->
-  <div class="w3-container" style="margin-top:80px" id="showcase">
-    <h1 class="w3-jumbo"><b>Interior Design</b></h1>
-    <h1 class="w3-xxxlarge w3-text-red"><b>Showcase.</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-  </div>
-  
-  <!-- Photo grid (modal) -->
-  <div class="w3-row-padding">
-    <div class="w3-half">
-      <img src="/w3images/kitchenconcrete.jpg" style="width:100%" onclick="onClick(this)" alt="Concrete meets bricks">
-      <img src="/w3images/livingroom.jpg" style="width:100%" onclick="onClick(this)" alt="Light, white and tight scandinavian design">
-      <img src="/w3images/diningroom.jpg" style="width:100%" onclick="onClick(this)" alt="White walls with designer chairs">
-    </div>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hi! I'm Sinchana SM, a computer science student with a passion for solving complex problems. 
+           I worked on Design and Analysis of Algorithms with a goal to master efficient coding practices 
+           and contribute to cutting-edge technologies. I gained experience of various algorithms and data structures 
+           such as arrays, linked lists, trees, sorting, string matching and searching algorithms.</p>
+    </section>
 
-    <div class="w3-half">
-      <img src="/w3images/atrium.jpg" style="width:100%" onclick="onClick(this)" alt="Windows for the atrium">
-      <img src="/w3images/bedroom.jpg" style="width:100%" onclick="onClick(this)" alt="Bedroom and office in one space">
-      <img src="/w3images/livingroom2.jpg" style="width:100%" onclick="onClick(this)" alt="Scandinavian design">
-    </div>
-  </div>
-
-  <!-- Modal for full size images on click-->
-  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
-    <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
-    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-      <img id="img01" class="w3-image">
-      <p id="caption"></p>
-    </div>
-  </div>
-
-  <!-- Services -->
-  <div class="w3-container" id="services" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>Services.</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-    <p>We are an interior design service that focuses on what's best for your home and you!</p>
-    <p>Details about the services provided...</p>
-  </div>
-
-  <!-- Designers -->
-  <div class="w3-container" id="designers" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>Designers.</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-    <p>The best team in the world.</p>
-  </div>
-
-  <!-- The Team -->
-  <div class="w3-row-padding w3-grayscale">
-    <div class="w3-col m4 w3-margin-bottom">
-      <div class="w3-light-grey">
-        <img src="/w3images/team2.jpg" alt="John" style="width:100%">
-        <div class="w3-container">
-          <h3>John Doe</h3>
-          <p class="w3-opacity">CEO & Founder</p>
-        </div>
-      </div>
-    </div>
-    <div class="w3-col m4 w3-margin-bottom">
-      <div class="w3-light-grey">
-        <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
-        <div class="w3-container">
-          <h3>Jane Doe</h3>
-          <p class="w3-opacity">Designer</p>
-        </div>
-      </div>
-    </div>
-    <div class="w3-col m4 w3-margin-bottom">
-      <div class="w3-light-grey">
-        <img src="/w3images/team3.jpg" alt="Mike" style="width:100%">
-        <div class="w3-container">
-          <h3>Mike Ross</h3>
-          <p class="w3-opacity">Architect</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Packages -->
-  <div class="w3-container" id="packages" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>Packages.</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-    <p>Some text about our pricing...</p>
-  </div>
-
-  <!-- Contact -->
-  <div class="w3-container" id="contact" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>Contact.</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-    <p>Do you want us to style your home? Fill out the form!</p>
-    <form action="/action_page.php" target="_blank">
-      <div class="w3-section">
-        <label>Name</label>
-        <input class="w3-input w3-border" type="text" name="Name" required>
-      </div>
-      <div class="w3-section">
-        <label>Email</label>
-        <input class="w3-input w3-border" type="text" name="Email" required>
-      </div>
-      <div class="w3-section">
-        <label>Message</label>
-        <input class="w3-input w3-border" type="text" name="Message" required>
-      </div>
-      <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Send Message</button>
-    </form>  
-  </div>
-
-<!-- End page content -->
-</div>
-
-<!-- W3.CSS Container -->
-<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p></div>
-
-<script
+    <footer>
+        <p>&copy; 2024 Sinchana SM - All Rights Reserved</p>
+    </footer>
+</body>
+</html>
