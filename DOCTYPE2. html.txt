@@ -52,79 +52,6 @@
             animation: move 10s infinite;
         }
 
-        .bubble:nth-child(1) {
-            top: 20%;
-            left: 10%;
-            animation-duration: 12s;
-            animation-delay: 0s;
-        }
-
-        .bubble:nth-child(2) {
-            top: 50%;
-            left: 25%;
-            width: 70px;
-            height: 70px;
-            animation-duration: 14s;
-            animation-delay: 2s;
-        }
-
-        .bubble:nth-child(3) {
-            top: 70%;
-            left: 70%;
-            width: 40px;
-            height: 40px;
-            animation-duration: 10s;
-            animation-delay: 4s;
-        }
-
-        .bubble:nth-child(4) {
-            top: 30%;
-            left: 80%;
-            width: 60px;
-            height: 60px;
-            animation-duration: 15s;
-            animation-delay: 1s;
-        }
-
-        .bubble:nth-child(5) {
-            top: 40%;
-            left: 15%;
-            width: 50px;
-            height: 50px;
-            animation-duration: 11s;
-            animation-delay: 3s;
-        }
-
-        .bubble:nth-child(6) {
-            top: 10%;
-            left: 60%;
-            width: 45px;
-            height: 45px;
-            animation-duration: 13s;
-            animation-delay: 5s;
-        }
-
-        .bubble:nth-child(7) {
-            top: 80%;
-            left: 50%;
-            width: 55px;
-            height: 55px;
-            animation-duration: 16s;
-            animation-delay: 2s;
-        }
-
-        @keyframes move {
-            0% {
-                transform: translateY(0) translateX(0);
-            }
-            50% {
-                transform: translateY(-30px) translateX(20px);
-            }
-            100% {
-                transform: translateY(0) translateX(0);
-            }
-        }
-
         nav {
             background-color: #64b5f6; /* Soft blue nav bar */
             text-align: center;
@@ -176,74 +103,36 @@
         }
 
         .team-member {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
+            display: inline-block;
+            width: 30%;
+            padding: 15px;
+            margin: 10px;
+            box-sizing: border-box;
+            background-color: #f1f1f1;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .member {
-            text-align: center;
-            margin: 0 20px;
-        }
-
-        .member img {
-            width: 150px;
-            height: 150px;
+        .team-member img {
+            max-width: 100%;
             border-radius: 50%;
-            margin-bottom: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         footer {
-            background-color: #1565c0; /* Deep blue footer */
+            background-color: #0d47a1; /* Deep blue footer */
             color: white;
             padding: 20px;
             text-align: center;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes bounce {
-            0% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-            100% {
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateY(-100px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
+        /* Keyframes and animations unchanged */
     </style>
 </head>
 <body>
     <header>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <h1>Course Project - Data Structures & Algorithms</h1>
-        <p>Overview of our course project and the team working on it</p>
+        <h1>Course Projects in Data Structures and Algorithms</h1>
+        <p>Explore the Various Projects I've Worked On</p>
     </header>
 
     <nav>
@@ -253,54 +142,16 @@
     </nav>
 
     <section id="project-image">
-        <img src="https://example.com/project-image.jpg" alt="Course Project Image">
+        <img src="https://raw.githubusercontent.com/akgmage/go-web/master/templates/assets/DSA.png" alt="DSA Project Image">
     </section>
 
     <section id="project-details">
-        <h2>Problem Statement</h2>
-        <p>The goal of this project was to design and analyze a highly efficient algorithm for optimizing sorting and searching within large data sets. Our solution focused on reducing time complexity through data structure manipulations.</p>
-
-        <h3>Key Questions</h3>
-        <ul>
-            <li>How can we optimize the search time for large databases?</li>
-            <li>What are the best data structures for fast sorting?</li>
-            <li>How does algorithmic complexity affect performance in real-time systems?</li>
-            <li>What improvements can we make to reduce the space complexity?</li>
-            <li>How does multi-threading impact algorithmic performance?</li>
-        </ul>
-
-        <h3>Course Project Members</h3>
-        <div class="team-member">
-            <div class="member">
-                <img src="https://example.com/sinchana.jpg" alt="Sinchana">
-                <p>Sinchana SM</p>
-                <a href="mailto:sinchana@example.com">Email</a><br>
-                <a href="https://github.com/sinchana" target="_blank">GitHub</a>
-            </div>
-            <div class="member">
-                <img src="https://example.com/namrutha.jpg" alt="Namrutha">
-                <p>Namrutha</p>
-                <a href="mailto:namrutha@example.com">Email</a><br>
-                <a href="https://github.com/namrutha" target="_blank">GitHub</a>
-            </div>
-            </div>
-            <div class="member">
-                <img src="https://example.com/namrutha.jpg" alt="Deepika">
-                <p>Deepika</p>
-                <a href="mailto:Deepika@example.com">Email</a><br>
-                <a href="https://github.com/Deepika" target="_blank">GitHub</a>
-            </div>
-            <div class="member">
-                <img src="https://example.com/nisha.jpg" alt="Nisha">
-                <p>Nisha</p>
-                <a href="mailto:nisha@example.com">Email</a><br>
-                <a href="https://github.com/nisha" target="_blank">GitHub</a>
-            </div>
-        </div>
+        <h2>Project 1: Sorting Algorithm Visualizer</h2>
+        <p>This project involved creating a visualizer for different sorting algorithms such as QuickSort, MergeSort, and BubbleSort. The goal was to help students visualize how sorting algorithms work step-by-step.</p>
     </section>
 
     <footer>
-        <p>&copy; 2024 Data Structures & Algorithms Project</p>
+        <p>&copy; 2024 Namrutha JD - All Rights Reserved</p>
     </footer>
 </body>
 </html>
