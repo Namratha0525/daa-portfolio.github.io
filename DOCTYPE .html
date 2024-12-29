@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> NAMRUTHA Student Portfolio DAA </title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #90caf9; /* Soft blue background */
+            color: #333;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        header {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1976d2, #42a5f5); /* Gradient shades of blue */
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            animation: bounce 1.5s infinite alternate;
+        }
+
+        header p {
+            font-size: 1.2em;
+        }
+
+        .bubble, .flower {
+            position: absolute;
+            animation: move 10s infinite;
+        }
+
+        .bubble {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            filter: blur(2px);
+        }
+
+        .flower {
+            width: 40px;
+            height: 40px;
+            background-color: #42a5f5; /* Blue flower */
+            border-radius: 50%;
+            filter: blur(1px);
+            animation-duration: 12s;
+        }
+
+        /* Flower and bubble animations unchanged */
+
+        nav {
+            background-color: #64b5f6; /* Soft blue nav bar */
+            text-align: center;
+            padding: 15px 0;
+            animation: slideIn 1s ease-out;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.1em;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #1976d2; /* Darker blue on hover */
+            color: white;
+        }
+
+        #top-images {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        #top-images img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px;
+        }
+
+        #about {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #fff;
+            margin: 40px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            animation: fadeIn 2s ease-in;
+        }
+
+        #about p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        footer {
+            background-color: #0d47a1; /* Deep blue footer */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Keyframes and animations unchanged */
+    </style>
+</head>
+<body>
+    <header>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+
+        <h1>Namrutha JD <br> Design and Analysis of Algorithms Portfolio</h1>
+        <p>My Student Portfolio of DAA</p>
+    </header>
+
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="course-projects.html">Course Projects</a>
+        <a href="learning-reflection.html">Learning Reflections</a>
+        <a href="student-details.html">Student Details</a>
+    </nav>
+
+    <section id="top-images">
+        <img src="https://raw.githubusercontent.com/akgmage/go-web/master/templates/assets/DSA.png" alt="DSA Image">
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hi I'm Namrutha, a computer science student with a deep passion for solving complex problems and exploring innovative solutions. 
+       I specialize in Design and Analysis of Algorithms and aim to master efficient coding practices to contribute to cutting-edge technologies 
+       and impactful software development. Throughout my journey, I have gained extensive experience with various algorithms and data structures, 
+       including arrays, linked lists, trees, sorting techniques, string matching, and searching algorithms. 
+</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Namrutha JD - All Rights Reserved</p>
+    </footer>
+</body>
+</html>
