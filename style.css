@@ -99,6 +99,20 @@ blockquote {
     margin-top: 2rem;
 }
 
+.section {
+            margin-bottom: 30px;
+            background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background for readability */
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .highlight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        /* Add some styling for the list */
+        ul li {
+            font-size: 16px;
+        }
 /* Responsive Design */
 @media (max-width: 600px) {
     section {
