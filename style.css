@@ -218,6 +218,8 @@ pre {
     overflow-x: auto; /* Horizontal scroll for long lines */
     font-family: 'Courier New', Courier, monospace; /* Monospace font for code */
     color: #333; /* Text color */
+    text-align: left; /* Align text to the left */
+    margin: 0; /* Remove default margin */
 }
 
 code {
