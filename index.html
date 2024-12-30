@@ -16,7 +16,7 @@
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Playfair Display', sans-serif;
             background-color: #e3f2fd; /* Soft blue background */
             color: #333;
             line-height: 1.6;
@@ -485,7 +485,253 @@
             <p>
                 The rapid pace of urbanization and the growing demand for efficient and sustainable public transportation systems present significant challenges for modern cities. Existing transportation platforms often fall short in addressing the complex needs of urban commuters, including real-time navigation, seamless ticketing, eco-friendly options, and operational efficiency. To bridge this gap, there is an urgent need for innovative e-transportation platforms that leverage advanced technologies such as AI, IoT, and data analytics. These platforms must not only enhance the user experience through intuitive and reliable services but also contribute to reducing environmental impact, managing traffic congestion, and optimizing transportation networks for a smarter, more sustainable urban future.
             </p>
+
+            
         </div>
+<h1>My Business Cases</h1>
+    
+    <div class="section">
+        <h2>Business Case 1: Seat Allotment in Train/Bus</h2>
+        
+        <h3>Problem Statement:</h3>
+        <p>
+            The problem of seat allotment in trains or buses arises when managing a large number of passengers who need to book seats dynamically while ensuring that specific criteria (e.g., nearest available seat, priority seating, or efficient allocation) are met.
+        </p>
+
+        <h3>Challenges:</h3>
+        <ul>
+            <li>Multiple passengers booking seats simultaneously.</li>
+            <li>Passengers canceling reservations, opening seats for reallocation.</li>
+            <li>Implementing prioritization (e.g., elderly passengers or families sitting together).</li>
+        </ul>
+
+        <h3>Functionalities to Address:</h3>
+        <ol>
+            <li>Dynamic Seat Allocation: Efficiently allocate seats based on specific criteria (e.g., nearest seat to the door, priority seating).</li>
+            <li>Seat Cancellation: Quickly free up a seat and update the available seat list.</li>
+            <li>Search for Best Seat: Identify the best available seat for a given passenger based on proximity, preferences, or cost.</li>
+            <li>Real-Time Updates: Handle bookings and cancellations in real-time without slowing down the system.</li>
+            <li>Fair Allocation: Ensure fairness in seat allotment based on predefined rules or priority classes.</li>
+        </ol>
+
+        <h3>Solving the Problem with Heap and BST:</h3>
+
+        <h4>1. Using Binary Search Tree (BST):</h4>
+        <p>
+            Functionality: Efficiently store and manage the list of available seats, keeping them sorted by seat number, proximity, or other criteria.
+        </p>
+        <p>
+            How it Works:
+        </p>
+        <ul>
+            <li>Insert: Add a seat to the BST when it becomes available, ensuring it is sorted.</li>
+            <li>Search: Find the nearest or preferred seat by traversing the tree.</li>
+            <li>Delete: Remove a booked seat from the BST.</li>
+        </ul>
+        <p>
+            Advantages:
+        </p>
+        <ul>
+            <li>Fast search, insertion, and deletion in O(log n) for balanced BSTs.</li>
+            <li>Dynamic management of seat availability in a sorted order.</li>
+        </ul>
+        <p>
+            Limitations:
+        </p>
+        <ul>
+            <li>Unbalanced BSTs can degrade operations to O(n).</li>
+        </ul>
+
+        <h4>2. Using Min-Heap (or Max-Heap):</h4>
+        <p>
+            Functionality: Ideal for seat allocation when the priority is finding the "smallest" or "nearest" seat, as the minimum element is always at the root.
+        </p>
+        <p>
+            How it Works:
+        </p>
+        <ul>
+            <li>Insert: Add a seat to the heap when it becomes available.</li>
+            <li>Extract Min: Extract the root (smallest seat number or nearest seat) for allocation.</li>
+            <li>Heapify: Maintain the heap property after insertions or deletions.</li>
+        </ul>
+        <p>
+            Advantages:
+        </p>
+        <ul>
+            <li>Finding the best seat is O(1).</li>
+            <li>Efficient insertions and deletions (O(log n)).</li>
+            <li>Maintains a clear priority-based allocation mechanism.</li>
+        </ul>
+        <p>
+            Limitations:
+        </p>
+        <ul>
+            <li>Does not support efficient search for specific seat numbers unless extra metadata or mapping is maintained.</li>
+            <li>Not ideal for complex queries (e.g., finding all seats in a specific row).</li>
+        </ul>
+
+        <h3>Conclusion:</h3>
+        <p>
+            Use a BST to maintain all available seats for efficient searching and dynamic updates. Use a Min-Heap to prioritize seat allocation, quickly finding the best available seat based on criteria like proximity or preference. By combining these data structures, the system can handle both fast dynamic seat allocation and specific queries efficiently.
+        </p>
+<h3>C++ Code Implementation:</h3>
+        <pre><code>
+
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+// Node structure for BST
+struct TreeNode {
+    int seatNumber;
+    TreeNode* left;
+    TreeNode* right;
+
+    TreeNode(int num) : seatNumber(num), left(nullptr), right(nullptr) {}
+};
+
+// Binary Search Tree class
+class BST {
+private:
+    TreeNode* root;
+
+    TreeNode* insert(TreeNode* node, int seatNumber) {
+        if (!node) return new TreeNode(seatNumber);
+        if (seatNumber &lt; node->seatNumber)
+            node->left = insert(node->left, seatNumber);
+        else
+            node->right = insert(node->right, seatNumber);
+        return node;
+    }
+
+    TreeNode* deleteNode(TreeNode* node, int seatNumber) {
+        if (!node) return node;
+        if (seatNumber &lt; node->seatNumber)
+            node->left = deleteNode(node->left, seatNumber);
+        else if (seatNumber &gt; node->seatNumber)
+            node->right = deleteNode(node->right, seatNumber);
+        else {
+            if (!node->left) return node->right;
+            else if (!node->right) return node->left;
+            node->seatNumber = minValueNode(node->right)->seatNumber;
+            node->right = deleteNode(node->right, node->seatNumber);
+        }
+        return node;
+    }
+
+    TreeNode* minValueNode(TreeNode* node) {
+        TreeNode* current = node;
+        while (current &amp;&amp; current->left) current = current->left;
+        return current;
+    }
+
+    void inOrder(TreeNode* node) {
+        if (node) {
+            inOrder(node->left);
+            cout &lt;&lt; node->seatNumber &lt;&lt; " ";
+            inOrder(node->right);
+        }
+    }
+
+public:
+    BST() : root(nullptr) {}
+
+    void insert(int seatNumber) {
+        root = insert(root, seatNumber);
+    }
+
+    void deleteSeat(int seatNumber) {
+        root = deleteNode(root, seatNumber);
+    }
+
+    void displaySeats() {
+        cout &lt;&lt; "Available Seats: ";
+        inOrder(root);
+        cout &lt;&lt; endl;
+    }
+};
+
+// Min-Heap class
+class MinHeap {
+private:
+    vector<int> heap;
+
+    void heapifyUp(int index) {
+        while (index &gt; 0) {
+            int parent = (index - 1) / 2;
+            if (heap[index] &lt; heap[parent]) {
+                swap(heap[index], heap[parent]);
+                index = parent;
+            } else {
+                break;
+            }
+        }
+    }
+
+    void heapifyDown(int index) {
+        int size = heap.size();
+        while (index < size) {
+            int left = 2 * index + 1;
+            int right = 2 * index + 2;
+            int smallest = index;
+
+            if (left < size && heap[left] < heap[smallest]) {
+                smallest = left;
+            }
+            if (right < size && heap[right] < heap[smallest]) {
+                smallest = right;
+            }
+            if (smallest != index) {
+                swap(heap[index], heap[smallest]);
+                index = smallest;
+            } else {
+                break;
+            }
+        }
+    }
+
+public:
+    void insert(int seatNumber) {
+        heap.push_back(seatNumber);
+        heapifyUp(heap.size() - 1);
+    }
+
+    int extractMin() {
+        if (heap.empty()) return -1; // No seats available
+        int minSeat = heap[0];
+        heap[0] = heap.back();
+        heap.pop_back();
+        heapifyDown(0);
+        return minSeat;
+    }
+
+    void displaySeats() {
+        cout &lt;&lt; "Available Seats in Min-Heap: ";
+        for (int seat : heap) {
+            cout &lt;&lt; seat &lt;&lt; " ";
+        }
+        cout &lt;&lt; endl;
+    }
+};
+
+int main() {
+    BST bst;
+    MinHeap minHeap;
+
+    // Example seat numbers
+    vector<int> seats = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+    // Insert seats into BST and Min-Heap
+    for (int seat : seats) {
+        bst.insert(seat);
+        minHeap.insert(seat);
+    }
+
+    // Display available seats
+    </div>
+
     </section>
     <section id="student-details">
         <!-- Contact Section with Team Details -->
