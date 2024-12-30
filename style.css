@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'playfair display', sans-serif;
     background-color: #e3f2fd; /* Soft blue background */
     color: #333;
     line-height: 1.6;
@@ -155,7 +155,7 @@ h2 {
     color: #333; /* Dark text color for table cells */
 }
 body {
-    font-family: Arial, sans-serif;
+    font-family: playfair display, sans-serif;
     margin: 0;
     padding: 0;
     background: linear-gradient(135deg, #e0f7fa, #80deea); /* Light blue gradient background */
@@ -223,19 +223,19 @@ pre {
 }
 
 code {
-    color: #d63384; /* Color for keywords and types */
+    color: #007bff; /* Color for keywords and types (Bright Blue) */
 }
 
 code .keyword {
-    color: #007bff; /* Color for keywords (e.g., class, struct) */
+    color: #0056b3; /* Color for keywords (e.g., class, struct) (Dark Blue) */
 }
 
 code .string {
-    color: #28a745; /* Color for string literals */
+    color: #66b3ff; /* Color for string literals (Light Blue) */
 }
 
 code .comment {
-    color: #6c757d; /* Color for comments */
+    color: #99ccff; /* Color for comments (Very Light Blue) */
 }
 
 
