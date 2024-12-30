@@ -1,4 +1,3 @@
-/* General styles */
 * {
     margin: 0;
     padding: 0;
@@ -6,21 +5,22 @@
 }
 
 body {
-    font-family: 'roboto', serif; /* Set font to Playfair Display */
-    background-color: #e3f2fd; /* Soft blue background */
+    font-family: 'Playfair Display', serif; /* Font remains Playfair Display */
+    background-color: #fff3e0; /* Soft cream background */
     color: #333;
     line-height: 1.6;
     font-size: 16px;
-    text-align: center; /* Center align all text by default */
 }
 
 header {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, #1976d2, #90caf9); /* Gradient shades of blue */
+    background: linear-gradient(135deg, #ff7043, #ffccbc); /* Gradient shades of coral and orange */
     color: white;
+    text-align: center;
     padding: 50px 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in; /* Fade-in animation */
 }
 
 header h1 {
@@ -31,10 +31,36 @@ header h1 {
 
 header p {
     font-size: 1.2em;
+    animation: slideIn 1s ease-in; /* Slide-in animation */
+}
+
+.bubble, .flower {
+    position: absolute;
+    animation: move 10s infinite;
+}
+
+.bubble {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    filter: blur(2px);
+    animation: float 6s ease-in-out infinite; /* Floating animation */
+}
+
+.flower {
+    width: 40px;
+    height: 40px;
+    background-color: #ffab40; /* Warm orange flower */
+    border-radius: 50%;
+    filter: blur(1px);
+    animation-duration: 12s;
 }
 
 nav {
-    background-color: #64b5f6; /* Soft blue nav bar */
+    background-color: #ff8a65; /* Soft coral nav bar */
+    text-align: center;
     padding: 15px 0;
     animation: slideIn 1s ease-out;
 }
@@ -47,95 +73,77 @@ nav a {
     font-weight: bold;
     padding: 5px 10px;
     border-radius: 5px;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease; /* Added transform transition */
 }
 
 nav a:hover {
-    background-color: #1976d2; /* Darker blue on hover */
+    background-color: #ff5722; /* Darker coral on hover */
     color: white;
+    transform: scale(1.1); /* Scale effect on hover */
+}
+
+#top-images, #project-image {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#top-images img, #project-image img {
+    max-width: 100%;
+    height: auto;
+    margin: 10px;
+    border-radius: 10px; /* Rounded corners for images */
+    transition: transform 0.3s ease; /* Image hover effect */
+}
+
+#top-images img:hover, #project-image img:hover {
+    transform: scale(1.05); /* Scale effect on hover */
 }
 
 #about, #project-details, #business-cases {
     padding: 60px 20px;
-    background-color: #fff;
+    text-align: center;
+    background-color: #fff; /* White background for sections */
     margin: 40px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     animation: fadeIn 2s ease-in;
 }
 
+#about p, #project-details p, #business-cases p {
+    font-size: 1.1em;
+    color: #555;
+}
+
 footer {
-    background-color: #0d47a1; /* Deep blue footer */
+    background-color: #d84315; /* Deep coral footer */
     color: white;
     padding: 20px;
+    text-align: center;
 }
 
-/* Code block styles */
-pre {
-    background-color: #e0f7fa; /* Light blue background for the code block */
-    border: 1px solid #b2ebf2; /* Light border around the code block */
-    border-radius: 5px; /* Rounded corners */
-    padding: 15px; /* Padding inside the code block */
-    overflow-x: auto; /* Horizontal scroll for long lines */
-    font-family: 'Courier New', Courier, monospace; /* Monospace font for code */
-    color:#007bff /* Dark teal color for text */
-    text-align: left; /* Align text to the left */
-    margin: 0; /* Remove default margin */
+/* Keyframes for animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
-code {
-    color: #007bff; /* Bright blue for keywords and types */
-}
-
-/* Updated classes for syntax highlighting */
-code .keyword {
-    color: #0056b3; /* Dark blue for keywords (e.g., class, struct) */
-}
-
-code .string {
-    color: #66b3ff; /* Light blue for string literals */
-}
-
-code .comment {
-    color: #99ccff; /* Very light blue for comments */
-}
-
-/* Keyframes and animations */
 @keyframes bounce {
-    0% {
+    from, to {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-20px);
-    }
-    100% {
-        transform: translateY(0);
+        transform: translateY(-10px);
     }
 }
 
 @keyframes slideIn {
-    0% {
-        transform: translateX(-100%);
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
     }
-    100% {
-        transform: translateX(0);
-    }
-}
-
-/* Team Section */
-.team-container {
-    display: flex;
-    justify-content: space-around;
-    margin: 20px 0;
-}
-
-.team-member {
-    text-align: center;
-    margin: 20px;
-}
-
-.team-member img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-}
+   
