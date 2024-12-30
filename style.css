@@ -111,6 +111,12 @@ footer {
     padding: 20px;
     text-align: center;
 }
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
 
 /* Keyframes and animations */
 @keyframes bounce {
