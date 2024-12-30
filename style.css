@@ -101,6 +101,7 @@ blockquote {
 
 .section {
             margin-bottom: 30px;
+            text-align: center;
             background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background for readability */
             padding: 15px;
             border-radius: 10px;
