@@ -1,4 +1,3 @@
-/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -7,172 +6,210 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: #f0f4f8; /* Light grayish background for contrast */
+    background-color: #e3f2fd; /* Soft blue background */
     color: #333;
     line-height: 1.6;
+    font-size: 16px;
 }
 
-/* Header */
 header {
     position: relative;
-    background: linear-gradient(135deg, #1e88e5, #bbdefb); /* Enhanced gradient */
+    overflow: hidden;
+    background: linear-gradient(135deg, #1976d2, #90caf9); /* Gradient shades of blue */
     color: white;
     text-align: center;
-    padding: 60px 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    border-bottom: 5px solid #1565c0;
+    padding: 50px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
-    font-size: 3.5em;
-    font-weight: 700;
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    font-size: 3em;
+    margin-bottom: 10px;
     animation: bounce 1.5s infinite alternate;
 }
 
 header p {
-    font-size: 1.3em;
-    font-weight: 300;
-    margin-top: 10px;
-}
-
-/* Navigation Bar */
-nav {
-    background-color: #2196f3; /* Richer blue */
-    text-align: center;
-    padding: 15px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.1em;
-    font-weight: 500;
-    margin: 0 15px;
-    padding: 10px 15px;
-    border-radius: 30px;
-    transition: all 0.3s ease;
-}
-
-nav a:hover {
-    background: white;
-    color: #2196f3;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-/* Section Styling */
-section {
-    padding: 60px 20px;
-    margin: 30px 0;
-    border-radius: 10px;
-    background: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-section h2, section h1 {
-    color: #1e88e5;
-    margin-bottom: 20px;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-/* Specific Section */
-#about p,
-#project-details p {
-    color: #555;
     font-size: 1.2em;
-    line-height: 1.8;
 }
 
-#top-images img {
-    width: 90%;
-    max-width: 300px;
-    margin: 20px;
-    border: 5px solid #bbdefb;
-    border-radius: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Footer */
-footer {
-    background: #1565c0;
-    color: white;
-    padding: 20px 10px;
-    text-align: center;
-    font-size: 0.9em;
-    margin-top: 40px;
-    border-top: 5px solid #1e88e5;
-}
-
-/* Bubble and Flower Animations */
 .bubble, .flower {
     position: absolute;
     animation: move 10s infinite;
 }
 
 .bubble {
-    width: 60px;
-    height: 60px;
-    background: rgba(255, 255, 255, 0.3);
-    border: 2px solid rgba(255, 255, 255, 0.5);
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 50%;
-    filter: blur(4px);
+    filter: blur(2px);
 }
 
 .flower {
-    width: 50px;
-    height: 50px;
-    background-color: #82b1ff;
+    width: 40px;
+    height: 40px;
+    background-color: #42a5f5; /* Blue flower */
     border-radius: 50%;
-    filter: blur(2px);
+    filter: blur(1px);
     animation-duration: 12s;
 }
 
-/* Team Section Styling */
+nav {
+    background-color: #64b5f6; /* Soft blue nav bar */
+    text-align: center;
+    padding: 15px 0;
+    animation: slideIn 1s ease-out;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #1976d2; /* Darker blue on hover */
+    color: white;
+}
+
+#top-images, #project-image {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#top-images img, #project-image img {
+    max-width: 100%;
+    height: auto;
+    margin: 10px;
+}
+
+#about, #project-details {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #fff;
+    margin: 40px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    animation: fadeIn 2s ease-in;
+}
+
+#about p, #project-details p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+footer {
+    background-color: #0d47a1; /* Deep blue footer */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Keyframes and animations */
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    25% {
+        transform: translateX(100px) translateY(50px);
+    }
+    50% {
+        transform: translateX(200px) translateY(0);
+    }
+    75% {
+        transform: translateX(100px) translateY(-50px);
+    }
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Team Section */
+.team-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
 .team-member {
     text-align: center;
-    margin: 20px auto;
-    width: 200px;
-    padding: 20px;
-    border: 1px solid #bbdefb;
-    border-radius: 15px;
-    background: #f1f8ff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 20px;
 }
 
 .team-member img {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    margin-bottom: 15px;
-    border: 3px solid #2196f3;
+    margin-bottom: 10px;
 }
 
 .team-member h4 {
-    margin: 10px 0;
-    font-weight: 600;
-    color: #1e88e5;
-}
-
-.team-member:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    font-size: 1.2em;
+    margin-bottom: 10px;
 }
 
 .social-icons a {
-    margin: 0 5px;
-    color: #1565c0;
-    font-size: 1.2em;
-    transition: color 0.3s ease;
+    margin: 0 10px;
+    font-size: 1.5em;
+    color: #1976d2;
+    transition: color 0.3s;
 }
 
 .social-icons a:hover {
-    color: #1e88e5;
+    color: #0d47a1;
 }
 
+.contact-text {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 40px 0;
+}
+
+.contact-text h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.contact-text h3 {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
