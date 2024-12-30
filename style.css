@@ -1,4 +1,3 @@
-/* General styles */
 * {
     margin: 0;
     padding: 0;
@@ -6,12 +5,11 @@
 }
 
 body {
-    font-family: 'roboto', serif; /* Set font to Playfair Display */
+    font-family: 'playfair display', sans-serif;
     background-color: #e3f2fd; /* Soft blue background */
     color: #333;
     line-height: 1.6;
     font-size: 16px;
-    text-align: center; /* Center align all text by default */
 }
 
 header {
@@ -19,6 +17,7 @@ header {
     overflow: hidden;
     background: linear-gradient(135deg, #1976d2, #90caf9); /* Gradient shades of blue */
     color: white;
+    text-align: center;
     padding: 50px 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -33,8 +32,32 @@ header p {
     font-size: 1.2em;
 }
 
+.bubble, .flower {
+    position: absolute;
+    animation: move 10s infinite;
+}
+
+.bubble {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    filter: blur(2px);
+}
+
+.flower {
+    width: 40px;
+    height: 40px;
+    background-color: #42a5f5; /* Blue flower */
+    border-radius: 50%;
+    filter: blur(1px);
+    animation-duration: 12s;
+}
+
 nav {
     background-color: #64b5f6; /* Soft blue nav bar */
+    text-align: center;
     padding: 15px 0;
     animation: slideIn 1s ease-out;
 }
@@ -55,8 +78,21 @@ nav a:hover {
     color: white;
 }
 
-#about, #project-details, #business-cases {
+#top-images, #project-image {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#top-images img, #project-image img {
+    max-width: 100%;
+    height: auto;
+    margin: 10px;
+}
+
+#about, #project-details {
     padding: 60px 20px;
+    text-align: center;
     background-color: #fff;
     margin: 40px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -64,41 +100,144 @@ nav a:hover {
     animation: fadeIn 2s ease-in;
 }
 
+#about p, #project-details p {
+    font-size: 1.1em;
+    color: #555;
+}
+
 footer {
     background-color: #0d47a1; /* Deep blue footer */
     color: white;
     padding: 20px;
+    text-align: center;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* Light blue background for the body */
+    margin: 20px;
 }
 
-/* Code block styles */
+h2 {
+    color: #007acc; /* Darker blue for headings */
+    margin-bottom: 10px;
+}
+
+.content-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.content-table thead {
+    background-color: #b3e0ff; /* Light blue for the header */
+}
+
+.content-table th, .content-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #d1e7ff; /* Light border for table cells */
+}
+
+.content-table th {
+    color: #005f99; /* Darker blue for header text */
+}
+
+.content-table tr:nth-child(even) {
+    background-color: #e6f7ff; /* Light blue for even rows */
+}
+
+.content-table tr:hover {
+    background-color: #cceeff; /* Slightly darker blue on hover */
+}
+
+.content-table td {
+    color: #333; /* Dark text color for table cells */
+}
+body {
+    font-family: playfair display, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #e0f7fa, #80deea); /* Light blue gradient background */
+}
+
+.learning-outcomes {
+    padding: 40px;
+    text-align: center;
+}
+
+h1 {
+    color: #007acc; /* Darker blue for the main heading */
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Space between cards */
+}
+
+.card {
+    background: white; /* White background for cards */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    padding: 20px;
+    width: 300px; /* Fixed width for cards */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+.icon {
+    font-size: 40px; /* Size of the icon */
+    color: #007acc; /* Icon color */
+    margin-bottom: 15px; /* Space below the icon */
+}
+
+h2 {
+    color: #333; /* Dark text color for card titles */
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+p {
+    color: #666; /* Lighter text color for card descriptions */
+    font-size: 1em;
+    line-height: 1.5; /* Line height for better readability */
+}
 pre {
-    background-color: #e0f7fa; /* Light blue background for the code block */
-    border: 1px solid #b2ebf2; /* Light border around the code block */
+    background-color: #f4f4f4; /* Light gray background for the code block */
+    border: 1px solid #ddd; /* Light border around the code block */
     border-radius: 5px; /* Rounded corners */
     padding: 15px; /* Padding inside the code block */
     overflow-x: auto; /* Horizontal scroll for long lines */
     font-family: 'Courier New', Courier, monospace; /* Monospace font for code */
-    color:#007bff /* Dark teal color for text */
+    color: #333; /* Text color */
     text-align: left; /* Align text to the left */
     margin: 0; /* Remove default margin */
 }
 
 code {
-    color: #007bff; /* Bright blue for keywords and types */
+    color: #007bff; /* Color for keywords and types (Bright Blue) */
 }
 
-/* Updated classes for syntax highlighting */
 code .keyword {
-    color: #0056b3; /* Dark blue for keywords (e.g., class, struct) */
+    color: #0056b3; /* Color for keywords (e.g., class, struct) (Dark Blue) */
 }
 
 code .string {
-    color: #66b3ff; /* Light blue for string literals */
+    color: #66b3ff; /* Color for string literals (Light Blue) */
 }
 
 code .comment {
-    color: #99ccff; /* Very light blue for comments */
+    color: #99ccff; /* Color for comments (Very Light Blue) */
 }
+
 
 /* Keyframes and animations */
 @keyframes bounce {
@@ -110,6 +249,33 @@ code .comment {
     }
     100% {
         transform: translateY(0);
+    }
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    25% {
+        transform: translateX(100px) translateY(50px);
+    }
+    50% {
+        transform: translateX(200px) translateY(0);
+    }
+    75% {
+        transform: translateX(100px) translateY(-50px);
+    }
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
 
@@ -138,4 +304,39 @@ code .comment {
     width: 120px;
     height: 120px;
     border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.team-member h4 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    font-size: 1.5em;
+    color: #1976d2;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #0d47a1;
+}
+
+.contact-text {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 40px 0;
+}
+
+.contact-text h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.contact-text h3 {
+    font-size: 1.5em;
+    margin-bottom: 30px;
 }
