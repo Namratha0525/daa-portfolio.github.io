@@ -183,6 +183,65 @@ blockquote {
         .business-case h3 {
             margin-top: 10px;
         }
+.contact {
+    padding: 40px; change the code by 
+    text-align: center;
+}
+
+.contact-text h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.contact-text h3 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.team-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-content: center;
+}
+
+.team-member {
+    background-color: #12141c;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.team-member h4 {
+    color: white;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.team-member p {
+    color: white;
+    margin: 5px 0;
+}
+.team-image {
+    width: 100px;               /* Set the diameter of the circular image */
+    height: 100px;              /* Ensure height matches width for a perfect circle */
+    border-radius: 50%;         /* Make the image circular */
+    object-fit: cover;          /* Ensure the image fills the circle without distortion */
+    margin-bottom: 15px;        /* Add spacing below the image */
+    border: 3px solid white;    /* Optional: Add a white border around the image */
+    display: block;             /* Center the image within its container */
+    margin-left: auto;          /* Horizontally center the image */
+    margin-right: auto;         /* Horizontally center the image */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Optional: Add a soft shadow for depth */
+} change both codes add background blue shade
+
 /* Responsive Design */
 @media (max-width: 600px) {
     section {
