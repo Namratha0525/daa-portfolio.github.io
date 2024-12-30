@@ -113,6 +113,46 @@ blockquote {
         ul li {
             font-size: 16px;
         }
+.section {
+            margin-bottom: 20px;
+        }
+
+        .section h2 {
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        .functionalities ul, .business-cases ul {
+            padding-left: 20px;
+        }
+
+        .business-case {
+            margin-bottom: 20px;
+        }
+
+        .business-case h3 {
+            margin-top: 10px;
+        }
+.section {
+            margin-bottom: 20px;
+        }
+
+        .section h2 {
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        .functionalities ul, .business-cases ul {
+            padding-left: 20px;
+        }
+
+        .business-case {
+            margin-bottom: 20px;
+        }
+
+        .business-case h3 {
+            margin-top: 10px;
+        }
 /* Responsive Design */
 @media (max-width: 600px) {
     section {
