@@ -154,6 +154,62 @@ h2 {
 .content-table td {
     color: #333; /* Dark text color for table cells */
 }
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #e0f7fa, #80deea); /* Light blue gradient background */
+}
+
+.learning-outcomes {
+    padding: 40px;
+    text-align: center;
+}
+
+h1 {
+    color: #007acc; /* Darker blue for the main heading */
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Space between cards */
+}
+
+.card {
+    background: white; /* White background for cards */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    padding: 20px;
+    width: 300px; /* Fixed width for cards */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+.icon {
+    font-size: 40px; /* Size of the icon */
+    color: #007acc; /* Icon color */
+    margin-bottom: 15px; /* Space below the icon */
+}
+
+h2 {
+    color: #333; /* Dark text color for card titles */
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+p {
+    color: #666; /* Lighter text color for card descriptions */
+    font-size: 1em;
+    line-height: 1.5; /* Line height for better readability */
+}
 
 
 /* Keyframes and animations */
