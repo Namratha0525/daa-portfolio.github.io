@@ -1,3 +1,4 @@
+/* General styles */
 * {
     margin: 0;
     padding: 0;
@@ -71,32 +72,32 @@ footer {
 
 /* Code block styles */
 pre {
-    background-color: #f4f4f4; /* Light gray background for the code block */
-    border: 1px solid #ddd; /* Light border around the code block */
+    background-color: #e0f7fa; /* Light blue background for the code block */
+    border: 1px solid #b2ebf2; /* Light border around the code block */
     border-radius: 5px; /* Rounded corners */
     padding: 15px; /* Padding inside the code block */
     overflow-x: auto; /* Horizontal scroll for long lines */
     font-family: 'Courier New', Courier, monospace; /* Monospace font for code */
-    color: #333; /* Text color */
+    color: #004d40; /* Dark teal color for text */
     text-align: left; /* Align text to the left */
     margin: 0; /* Remove default margin */
 }
 
 code {
-    color: #007bff; /* Color for keywords and types (Bright Blue) */
+    color: #007bff; /* Bright blue for keywords and types */
 }
 
 /* Updated classes for syntax highlighting */
 code .keyword {
-    color: #0056b3; /* Color for keywords (e.g., class, struct) (Dark Blue) */
+    color: #0056b3; /* Dark blue for keywords (e.g., class, struct) */
 }
 
 code .string {
-    color: #66b3ff; /* Color for string literals (Light Blue) */
+    color: #66b3ff; /* Light blue for string literals */
 }
 
 code .comment {
-    color: #99ccff; /* Color for comments (Very Light Blue) */
+    color: #99ccff; /* Very light blue for comments */
 }
 
 /* Keyframes and animations */
