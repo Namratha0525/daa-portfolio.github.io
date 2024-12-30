@@ -229,17 +229,20 @@ blockquote {
     color: white;
     margin: 5px 0;
 }
-.team-image {
-    width: 100px;               /* Set the diameter of the circular image */
-    height: 100px;              /* Ensure height matches width for a perfect circle */
-    border-radius: 50%;         /* Make the image circular */
-    object-fit: cover;          /* Ensure the image fills the circle without distortion */
-    margin-bottom: 15px;        /* Add spacing below the image */
-    border: 3px solid white;    /* Optional: Add a white border around the image */
-    display: block;             /* Center the image within its container */
-    margin-left: auto;          /* Horizontally center the image */
-    margin-right: auto;         /* Horizontally center the image */
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Optional: Add a soft shadow for depth */
+.image-container img {
+    width: 150px; /* Set the desired size */
+    height: 150px; /* Ensure equal width and height for a perfect circle */
+    border-radius: 50%; /* Makes the image circular */
+    border: 5px solid #ddd; /* Add a border around the image */
+    object-fit: cover; /* Ensures the image is cropped to fit the circle */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds a shadow effect */
+    margin: 10px; /* Add some spacing */
+}
+
+/* Centering the image in its container */
+.image-container {
+    text-align: center; /* Aligns the image to the center */
+    margin-top: 20px; /* Adds spacing from the top */
 }
 /* Responsive Design */
 @media (max-width: 600px) {
