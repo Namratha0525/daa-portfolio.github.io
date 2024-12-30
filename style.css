@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Playfair Display', serif; /* Set font to Playfair Display */
+    font-family: 'roboto', serif; /* Set font to Playfair Display */
     background-color: #e3f2fd; /* Soft blue background */
     color: #333;
     line-height: 1.6;
@@ -78,7 +78,7 @@ pre {
     padding: 15px; /* Padding inside the code block */
     overflow-x: auto; /* Horizontal scroll for long lines */
     font-family: 'Courier New', Courier, monospace; /* Monospace font for code */
-    color: #004d40; /* Dark teal color for text */
+    color:#007bff /* Dark teal color for text */
     text-align: left; /* Align text to the left */
     margin: 0; /* Remove default margin */
 }
