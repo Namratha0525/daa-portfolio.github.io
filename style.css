@@ -210,6 +210,31 @@ p {
     font-size: 1em;
     line-height: 1.5; /* Line height for better readability */
 }
+pre {
+    background-color: #f4f4f4; /* Light gray background for the code block */
+    border: 1px solid #ddd; /* Light border around the code block */
+    border-radius: 5px; /* Rounded corners */
+    padding: 15px; /* Padding inside the code block */
+    overflow-x: auto; /* Horizontal scroll for long lines */
+    font-family: 'Courier New', Courier, monospace; /* Monospace font for code */
+    color: #333; /* Text color */
+}
+
+code {
+    color: #d63384; /* Color for keywords and types */
+}
+
+code .keyword {
+    color: #007bff; /* Color for keywords (e.g., class, struct) */
+}
+
+code .string {
+    color: #28a745; /* Color for string literals */
+}
+
+code .comment {
+    color: #6c757d; /* Color for comments */
+}
 
 
 /* Keyframes and animations */
