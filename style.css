@@ -239,9 +239,8 @@ blockquote {
     display: block;             /* Center the image within its container */
     margin-left: auto;          /* Horizontally center the image */
     margin-right: auto;         /* Horizontally center the image */
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Optional: Add a soft shadow for depth */
-} change both codes add background blue shade
-
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Optional: Add a soft shadow for depth */
+}
 /* Responsive Design */
 @media (max-width: 600px) {
     section {
