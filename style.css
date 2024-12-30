@@ -10,6 +10,7 @@ body {
     color: #333;
     line-height: 1.6;
     font-size: 16px;
+     text-align: center;
 }
 
 header {
@@ -90,20 +91,22 @@ nav a:hover {
     margin: 10px;
 }
 
-#about, #project-details {
+#about, #project-details, #business-cases {
     padding: 60px 20px;
-    text-align: center;
     background-color: #fff;
+    text-align: center;
     margin: 40px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     animation: fadeIn 2s ease-in;
 }
 
-#about p, #project-details p {
+
+#about p, #project-details ,#business-cases {
     font-size: 1.1em;
     color: #555;
 }
+
 
 footer {
     background-color: #0d47a1; /* Deep blue footer */
