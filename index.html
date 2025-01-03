@@ -507,173 +507,241 @@
                 <h4>Code for Business Case 1</h4>
                
                 <pre>  
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <limits.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <string.h>
 
-using namespace std;
+#define MAX_NAME_LENGTH 50
+#define MAX_PHONE_LENGTH 10
+#define MAX_SEATS 20
 
-// Node structure for BST
-struct TreeNode {
-    int seatNumber;
-    TreeNode* left;
-    TreeNode* right;
+typedef struct {
+    char name[MAX_NAME_LENGTH];
+    char phone[MAX_PHONE_LENGTH];
+    char source[MAX_NAME_LENGTH];
+    char destination[MAX_NAME_LENGTH];
+    int seat_number;
+    char reserved_for; // 'M' for Male, 'F' for Female, 'N' for None
+} Customer;
 
-    TreeNode(int num) : seatNumber(num), left(nullptr), right(nullptr) {}
-};
+typedef struct {
+    Customer customers[MAX_SEATS];
+    bool is_booked[MAX_SEATS];
+    int capacity;
+} SeatHeap;
 
-// Binary Search Tree class
-class BST {
-private:
-    TreeNode* root;
-
-    TreeNode* insert(TreeNode* node, int seatNumber) {
-        if (!node) return new TreeNode(seatNumber);
-        if (seatNumber < node->seatNumber)
-            node->left = insert(node->left, seatNumber);
-        else
-            node->right = insert(node->right, seatNumber);
-        return node;
+SeatHeap* create_heap(int capacity) {
+    SeatHeap* heap = (SeatHeap*)malloc(sizeof(SeatHeap));
+    heap->capacity = capacity;
+    for (int i = 0; i < capacity; i++) {
+        heap->is_booked[i] = false;
+        heap->customers[i].reserved_for = 'N'; // Initially, no reservation
     }
+    return heap;
+}
 
-    TreeNode* deleteNode(TreeNode* node, int seatNumber) {
-        if (!node) return node;
-        if (seatNumber < node->seatNumber)
-            node->left = deleteNode(node->left, seatNumber);
-        else if (seatNumber > node->seatNumber)
-            node->right = deleteNode(node->right, seatNumber);
-        else {
-            if (!node->left) return node->right;
-            else if (!node->right) return node->left;
-            node->seatNumber = minValueNode(node->right)->seatNumber;
-            node->right = deleteNode(node->right, node->seatNumber);
-        }
-        return node;
+void reserve_seats(SeatHeap* heap, int start, int end, char gender) {
+    for (int i = start - 1; i < end; i++) {
+        heap->customers[i].reserved_for = gender;
     }
+}
 
-    TreeNode* minValueNode(TreeNode* node) {
-        TreeNode* current = node;
-        while (current && current->left) current = current->left;
-        return current;
-    }
+int book_seat(SeatHeap* heap, char gender, char* name, char* phone, char* source, char* destination) {
+    for (int i = 0; i < heap->capacity; i++) {
+        if (!heap->is_booked[i] && (heap->customers[i].reserved_for == gender || heap->customers[i].reserved_for == 'N')) {
+            heap->is_booked[i] = true;
+            heap->customers[i].seat_number = i + 1;
+            strcpy(heap->customers[i].name, name);
+            strcpy(heap->customers[i].phone, phone);
+            strcpy(heap->customers[i].source, source);
+            strcpy(heap->customers[i].destination, destination);
 
-    void inOrder(TreeNode* node) {
-        if (node) {
-            inOrder(node->left);
-            cout << node->seatNumber << " ";
-            inOrder(node->right);
+            printf("Seat %d booked successfully for %s.\n", i + 1, name);
+            return i + 1;
         }
     }
+    return -1; // No available seats
+}
 
-public:
-    BST() : root(nullptr) {}
-
-    void insert(int seatNumber) {
-        root = insert(root, seatNumber);
-    }
-
-    void deleteSeat(int seatNumber) {
-        root = deleteNode(root, seatNumber);
-    }
-
-    void displaySeats() {
-        cout << "Available Seats (BST): ";
-        inOrder(root);
-        cout << endl;
-    }
-};
-
-// Min-Heap class
-class MinHeap {
-private:
-    vector<int> heap;
-
-    void heapifyUp(int index) {
-        while (index > 0) {
-            int parent = (index - 1) / 2;
-            if (heap[index] < heap[parent]) {
-                swap(heap[index], heap[parent]);
-                index = parent;
+void display_available_seats(SeatHeap* heap) {
+    printf("\nAvailable Seats:\n");
+    for (int i = 0; i < heap->capacity; i++) {
+        if (!heap->is_booked[i]) {
+            printf("Seat %d ", i + 1);
+            if (heap->customers[i].reserved_for == 'M') {
+                printf("(Reserved for Male)\n");
+            } else if (heap->customers[i].reserved_for == 'F') {
+                printf("(Reserved for Female)\n");
             } else {
-                break;
+                printf("(Available for All)\n");
             }
         }
     }
+}
 
-    void heapifyDown(int index) {
-        int size = heap.size();
-        while (index < size) {
-            int left = 2 * index + 1;
-            int right = 2 * index + 2;
-            int smallest = index;
+void display_seat_summary(SeatHeap* heap) {
+    int available = 0, booked = 0, reserved_male = 5, reserved_female = 5;
 
-            if (left < size && heap[left] < heap[smallest]) {
-                smallest = left;
-            }
-            if (right < size && heap[right] < heap[smallest]) {
-                smallest = right;
-            }
-            if (smallest != index) {
-                swap(heap[index], heap[smallest]);
-                index = smallest;
-            } else {
-                break;
-            }
+    for (int i = 0; i < heap->capacity; i++) {
+        if (!heap->is_booked[i]) {
+            available++;
+        } else {
+            booked++;
+        }
+
+        if (heap->customers[i].reserved_for == 'M') {
+            reserved_male++;
+        } else if (heap->customers[i].reserved_for == 'F') {
+            reserved_female++;
         }
     }
 
-public:
-    void insert(int seatNumber) {
-        heap.push_back(seatNumber);
-        heapifyUp(heap.size() - 1);
-    }
-
-    int extractMin() {
-        if (heap.empty()) return -1; // No seats available
-        int minSeat = heap[0];
-        heap[0] = heap.back();
-        heap.pop_back();
-        heapifyDown(0);
-        return minSeat;
-    }
-
-    void displaySeats() {
-        cout << "Available Seats (Min-Heap): ";
-        for (int seat : heap) {
-            cout << seat << " ";
-        }
-        cout << endl;
-    }
-};
+    printf("\nSeat Summary:\n");
+    printf("Total Seats: %d\n", heap->capacity);
+    printf("Available Seats: %d\n", available);
+    printf("Booked Seats: %d\n", booked);
+    printf("Reserved for Males: %d\n", reserved_male);
+    printf("Reserved for Females: %d\n", reserved_female);
+}
 
 int main() {
-    BST bst;
-    MinHeap minHeap;
+    SeatHeap* ac_sleeper_heap = create_heap(MAX_SEATS);
+    SeatHeap* ac_non_sleeper_heap = create_heap(MAX_SEATS);
+    SeatHeap* non_ac_sleeper_heap = create_heap(MAX_SEATS);
+    SeatHeap* non_ac_non_sleeper_heap = create_heap(MAX_SEATS);
 
-    // Example seat numbers
-    vector<int> seats = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    printf("Welcome to our Bus Seat Booking System!\n");
+    printf("Traveling : it leaves you speechless, then turns you into a storyteller.\n");
 
-    // Insert seats into BST and Min-Heap
-    for (int seat : seats) {
-        bst.insert(seat);
-        minHeap.insert(seat);
+    int choice;
+
+    while (1) {
+        printf("\n1. Book a seat\n");
+        printf("2. Display available seats\n");
+        printf("3. Display seat summary\n");
+        printf("4. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1: {
+                char bus_type[10], seat_type[10];
+                printf("Enter bus type (AC/Non-AC): ");
+                scanf("%s", bus_type);
+                printf("Enter seat type (Sleeper/Non-Sleeper): ");
+                scanf("%s", seat_type);
+
+                SeatHeap* selected_heap = NULL;
+                if (strcmp(bus_type, "AC") == 0) {
+                    selected_heap = (strcmp(seat_type, "Sleeper") == 0) ? ac_sleeper_heap : ac_non_sleeper_heap;
+                } else {
+                    selected_heap = (strcmp(seat_type, "Sleeper") == 0) ? non_ac_sleeper_heap : non_ac_non_sleeper_heap;
+                }
+
+                int num_seats;
+                printf("Enter number of seats to book: ");
+                scanf("%d", &num_seats);
+
+                for (int i = 0; i < num_seats; i++) {
+                    char name[MAX_NAME_LENGTH], phone[MAX_PHONE_LENGTH], source[MAX_NAME_LENGTH], destination[MAX_NAME_LENGTH], gender;
+                    printf("\nBooking seat %d/%d\n", i + 1, num_seats);
+                    printf("Enter your name: ");
+                    scanf("%s", name);
+                    printf("Enter your phone number: ");
+                    scanf("%s", phone);
+                    printf("Enter source: ");
+                    scanf("%s", source);
+                    printf("Enter destination: ");
+                    scanf("%s", destination);
+                    printf("Enter gender (M/F): ");
+                    scanf(" %c", &gender);
+
+                    int seat_number = book_seat(selected_heap, gender, name, phone, source, destination);
+                    if (seat_number == -1) {
+                        printf("No available seats for this bus type and seat type.\n");
+                        break;
+                    }
+                }
+                break;
+            }
+
+            case 2: {
+                char bus_type[10], seat_type[10];
+                printf("Enter bus type (AC/Non-AC): ");
+                scanf("%s", bus_type);
+                printf("Enter seat type (Sleeper/Non-Sleeper): ");
+                scanf("%s", seat_type);
+
+                SeatHeap* selected_heap = NULL;
+                if (strcmp(bus_type, "AC") == 0) {
+                    selected_heap = (strcmp(seat_type, "Sleeper") == 0) ? ac_sleeper_heap : ac_non_sleeper_heap;
+                } else {
+                    selected_heap = (strcmp(seat_type, "Sleeper") == 0) ? non_ac_sleeper_heap : non_ac_non_sleeper_heap;
+                }
+
+                display_available_seats(selected_heap);
+                break;
+            }
+
+            case 3: {
+                char bus_type[10], seat_type[10];
+                printf("Enter bus type (AC/Non-AC): ");
+                scanf("%s", bus_type);
+                printf("Enter seat type (Sleeper/Non-Sleeper): ");
+                scanf("%s", seat_type);
+
+                SeatHeap* selected_heap = NULL;
+                if (strcmp(bus_type, "AC") == 0) {
+                    selected_heap = (strcmp(seat_type, "Sleeper") == 0) ? ac_sleeper_heap : ac_non_sleeper_heap;
+                } else {
+                    selected_heap = (strcmp(seat_type, "Sleeper") == 0) ? non_ac_sleeper_heap : non_ac_non_sleeper_heap;
+                }
+
+                display_seat_summary(selected_heap);
+                break;
+            }
+
+            case 4:
+                printf("Exiting...\n");
+                free(ac_sleeper_heap);
+                free(ac_non_sleeper_heap);
+                free(non_ac_sleeper_heap);
+                free(non_ac_non_sleeper_heap);
+                return 0;
+
+            default:
+                printf("Invalid choice! Please try again.\n");
+        }
     }
+    return 0;
+}
 
-    // Display available seats
-    bst.displaySeats();
-    minHeap.displaySeats();
-
-    // Allocate a seat (extract min from Min-Heap)
-    int allocatedSeat = minHeap.extractMin();
    
                                             </pre>
                 <button class="run-btn">Run Code</button>
                 <div class="output">
                     <h4>Output :</h4>
-                    <p>   Available Seats (BST): 1 2 3 4 5 6 7 8 9 10 
-Available Seats (Min-Heap): 1 2 3 4 5 6 7 8 9 10 
-Allocated Seat: 1
+                    <p>  Welcome to our Bus Seat Booking System!
+Traveling : it leaves you speechless, then turns you into a storyteller.
+
+1. Book a seat
+2. Display available seats
+3. Display seat summary
+4. Exit
+Enter your choice: 1
+Enter bus type (AC/Non-AC): ac
+Enter seat type (Sleeper/Non-Sleeper): sleeper
+Enter number of seats to book: 1
+
+Booking seat 1/1
+Enter your name: nam
+Enter your phone number: 123
+Enter source: hubli
+Enter destination: banglore
+Enter gender (M/F): f
+Seat 1 booked successfully for nam.
+
                      </p>
                 </div>
             </div>
