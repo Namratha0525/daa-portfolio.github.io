@@ -761,69 +761,87 @@ Seat 1 booked successfully for nam.
 
             <!-- Code Editor for Business Case 2 -->
             <div class="code-editor">
-                <h4>Code for Business Case 2</h4><pre>#include <iostream>
-#include <vector>
-#include <cmath>
-#include <climits>
-
+                <h4>Code for Business Case 2</h4><pre>
+#include <iostream>  // For input and output operations
+#include <vector>    // For using the vector container
+#include <limits>    // For numeric limits like infinity
 using namespace std;
 
-int distance(int x1, int y1, int x2, int y2) {
-    return abs(x2 - x1) + abs(y2 - y1);
-}
+const int INF = 1e9;  // Define a large value to represent infinity (used for unvisited nodes)
 
-int tsp(int current, int visited, const vector<vector<int>>& dist, vector<vector<int>>& dp) {
-    if (visited == (1 << dist.size()) - 1) {
-        return dist[current][0];
-    }
+// Function to find the nearest unvisited neighbor (minimizing distance)
+int findNearest(int current, const vector<vector<int>>& graph, vector<bool>& visited) {
+    int n = graph.size();  // Get the number of nodes in the graph
+    int nearest = -1;      // Initialize the nearest node as -1 (not found yet)
+    int minDistance = INF; // Initialize the minimum distance as infinity
 
-    if (dp[current][visited] != -1) {
-        return dp[current][visited];
-    }
-
-    int ans = INT_MAX;
-    for (int next = 0; next < dist.size(); ++next) {
-        if ((visited & (1 << next)) == 0) {
-            int newCost = dist[current][next] + tsp(next, visited | (1 << next), dist, dp);
-            ans = min(ans, newCost);
+    for (int i = 0; i < n; ++i) {  // Iterate over all nodes
+        if (!visited[i] && graph[current][i] < minDistance) {  // If node i is unvisited and has a shorter distance
+            minDistance = graph[current][i];  // Update the minimum distance
+            nearest = i;  // Update the nearest node
         }
     }
 
-    dp[current][visited] = ans;
-    return ans;
+    return nearest;  // Return the nearest unvisited node
+}
+
+// Function to solve the TSP (minimizing distance)
+void greedyTSP(const vector<vector<int>>& graph) {
+    int n = graph.size();  // Get the number of nodes in the graph
+    vector<bool> visited(n, false);  // Create a visited array initialized to false
+    visited[0] = true;  // Mark the starting node (depot) as visited
+    int current = 0;  // Start from the depot (node 0)
+    int totalDistance = 0;  // Initialize the total distance to 0
+
+    cout << "Route: 0 ";  // Print the starting point of the route
+
+    for (int i = 1; i < n; ++i) {  // Loop to visit all nodes
+        int next = findNearest(current, graph, visited);  // Find the nearest unvisited neighbor
+        if (next == -1) break;  // If no unvisited neighbor is found, break
+
+        totalDistance += graph[current][next];  // Add the distance to the total distance
+        current = next;  // Move to the next node
+        visited[current] = true;  // Mark the current node as visited
+        cout << "-> " << current << " ";  // Print the next node in the route
+    }
+
+    // Return to the starting point (depot)
+    totalDistance += graph[current][0];  // Add the distance back to the depot
+    cout << "-> 0" << endl;  // Print the return to the depot
+
+    cout << "Total Distance: " << totalDistance << " units" << endl;  // Print the total distance
 }
 
 int main() {
-    vector<pair<int, int>> locations = {{0, 0}, {10, 2}, {5, 5}, {8, 8}, {3, 10}};
-    vector<int> trashAmounts = {5, 2, 8, 3, 6};
+    int n;
+    cout << "Enter the number of nodes: ";
+    cin >> n;
 
-    int n = locations.size();
-    
-    vector<vector<int>> dist(n, vector<int>(n, 0));
+    // Create an adjacency matrix
+    vector<vector<int>> graph(n, vector<int>(n));
+    cout << "Enter the adjacency matrix (distance between nodes):" << endl;
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
-            dist[i][j] = distance(locations[i].first, locations[i].second, locations[j].first, locations[j].second);
+            cin >> graph[i][j];
         }
     }
 
-    vector<vector<int>> dp(n, vector<int>((1 << n), -1));
+    // Solve the problem
+    greedyTSP(graph);  // Call the greedyTSP function with the input graph
 
-    int minCost = tsp(0, 1, dist, dp);
-
-    cout << "Minimum transportation cost (TSP): " << minCost << endl;
-
-    return 0;
-}</pre>
+    return 0;  // End of the program
+}
+</pre>
                 <button class="run-btn">Run Code</button>
                 <div class="output">
                     <h4>Output :</h4>
-                    <p> 0 → 2: 10
-2 → 3: 6
-3 → 4: 7
-4 → 1: 15
-1 → 0: 12
-Total Cost = 10 + 6 + 7 + 15 + 12 = 38.Minimum transportation cost (TSP): 38
-</p>
+                    <p> Enter the number of nodes: 3
+Enter the adjacency matrix (distance between nodes):
+1 2 3
+4 5 6
+7 8 9
+Route: 0 -> 1 -> 2 -> 0
+Total Distance: 15 units</p>
                 </div>
             </div>
         </div>
