@@ -456,7 +456,7 @@ ul li strong { color: var(--text); }
 ═══════════════════════════════════════════ */
 
 #student-details {
-  /* Glass card base (same as other sections) */
+  /* Glass card base */
   background     : var(--glass);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -467,11 +467,11 @@ ul li strong { color: var(--text); }
   max-width      : 1140px;
   padding        : 52px 44px;
 
-  /* GRID */
-  display              : grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows   : auto;
-  gap                  : 0 24px;
+  /* GRID — override any inline text-align:center from HTML */
+  display              : grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap           : 24px;
+  row-gap              : 0;
   align-items          : start;
 }
 
@@ -514,10 +514,12 @@ ul li strong { color: var(--text); }
   overflow       : hidden;
   display        : flex;
   flex-direction : column;
-  align-items    : center;
-  text-align     : center;
+  align-items    : center;   /* centre content horizontally inside card */
+  text-align     : center;   /* text centred within card */
   padding-bottom : 22px;
   transition     : transform 0.28s, box-shadow 0.28s;
+  min-width      : 0;        /* prevent grid blowout */
+  word-break     : break-word;
 }
 .team-member:hover {
   transform : translateY(-7px);
@@ -526,13 +528,15 @@ ul li strong { color: var(--text); }
 
 /* Photo */
 .team-image {
-  width            : 100%;
-  aspect-ratio     : 1 / 1;
-  object-fit       : cover;
-  object-position  : center top;
-  display          : block;
-  background       : linear-gradient(135deg,#e8eeff,#f0e8ff);
-  transition       : transform 0.35s ease;
+  width          : 100%;
+  height         : 200px;        /* hard cap — no matter what the source image is */
+  max-width      : 100%;
+  object-fit     : cover;
+  object-position: center top;
+  display        : block;
+  flex-shrink    : 0;
+  background     : linear-gradient(135deg,#e8eeff,#f0e8ff);
+  transition     : transform 0.35s ease;
 }
 .team-member:hover .team-image { transform: scale(1.05); }
 
@@ -629,15 +633,17 @@ footer {
 /* ═══ RESPONSIVE ═════════════════════════════ */
 @media (max-width: 1024px) {
   #student-details {
-    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    row-gap: 24px;
   }
 }
 
 @media (max-width: 680px) {
   #student-details {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: minmax(0, 1fr) !important;
     max-width             : 380px;
     padding               : 36px 20px;
+    row-gap               : 24px;
   }
 
   #about,
