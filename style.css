@@ -1,143 +1,50 @@
-/* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* GLOBAL */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f8fafc;
+    margin: 0;
+    background: #f8fafc;
     color: #1e293b;
-    line-height: 1.6;
-    text-align: center;
 }
 
-/* HEADER */
-header {
-    background: linear-gradient(135deg, #1e3a8a, #3b82f6);
-    color: white;
-    padding: 60px 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-header h1 {
-    font-size: 2.8em;
-    margin-bottom: 10px;
-}
-
-header p {
-    font-size: 1.2em;
-    opacity: 0.9;
-}
-
-/* NAVBAR */
+/* NAV */
 nav {
-    background-color: #1e293b;
-    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background: #1e293b;
 }
 
 nav a {
     color: white;
+    margin-left: 20px;
     text-decoration: none;
-    margin: 0 15px;
-    font-weight: 500;
-    transition: 0.3s;
 }
 
-nav a:hover {
-    color: #60a5fa;
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.btn {
+    background: #3b82f6;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 6px;
 }
 
 /* SECTIONS */
-section {
-    padding: 60px 20px;
-    margin: 30px auto;
-    max-width: 1000px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-/* HEADINGS */
-h1, h2 {
-    color: #1e3a8a;
-}
-
-h2 {
-    margin-bottom: 15px;
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 50px 20px;
 }
 
 /* CARDS */
-.cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
 .card {
-    background: #ffffff;
-    border-radius: 12px;
+    background: white;
     padding: 20px;
-    width: 280px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-/* TABLE */
-.content-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-.content-table th, .content-table td {
-    padding: 12px;
-    border: 1px solid #e2e8f0;
-}
-
-.content-table th {
-    background: #e0f2fe;
-}
-
-/* CODE BLOCK */
-pre {
-    background: #0f172a;
-    color: #e2e8f0;
-    padding: 15px;
-    border-radius: 8px;
-    overflow-x: auto;
-    text-align: left;
-}
-
-/* TEAM */
-.team-container {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-}
-
-.team-member img {
-    width: 100px;
-    border-radius: 50%;
-}
-
-/* CONTACT */
-.contact-text {
-    padding: 40px;
-}
-
-/* FOOTER */
-footer {
-    background: #1e293b;
-    color: white;
-    padding: 20px;
-    margin-top: 40px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
