@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════
-   PASTEL + GLOSS UI (PREMIUM LOOK)
+   FINAL PREMIUM UI (PASTEL + GLOSS + ANIMATION)
 ═══════════════════════════════════════ */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
@@ -10,7 +10,7 @@
   box-sizing: border-box;
 }
 
-/* 🌈 PASTEL BACKGROUND */
+/* 🌈 BACKGROUND */
 body {
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg,#e0f2fe,#f0f9ff,#eef2ff,#fdf2f8);
@@ -18,7 +18,7 @@ body {
   line-height: 1.7;
 }
 
-/* ✨ HEADER (GLOSS + GRADIENT) */
+/* HEADER */
 header {
   background: linear-gradient(135deg,#60a5fa,#7c3aed,#38bdf8);
   color: white;
@@ -29,23 +29,21 @@ header {
 
 header h1 {
   font-size: 2.8rem;
-  font-weight: 700;
+  animation: fadeDown 1s ease;
 }
 
 header p {
-  margin-top: 10px;
-  opacity: 0.9;
+  animation: fadeUp 1s ease;
 }
 
-/* 🔷 NAV GLASS */
+/* NAV */
 nav {
   position: sticky;
   top: 0;
   backdrop-filter: blur(14px);
-  background: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.6);
   padding: 12px;
   text-align: center;
-  border-bottom: 1px solid rgba(255,255,255,0.3);
 }
 
 nav a {
@@ -61,68 +59,57 @@ nav a:hover {
   background: rgba(96,165,250,0.2);
 }
 
-/* 💎 GLASS SECTION */
+/* SECTION (GLASS) */
 section {
   max-width: 1100px;
   margin: 40px auto;
   padding: 40px;
-
   background: rgba(255,255,255,0.55);
   backdrop-filter: blur(18px);
-
   border-radius: 20px;
   border: 1px solid rgba(255,255,255,0.3);
-
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
 }
 
-section:hover {
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+/* ✨ GLOW BACKGROUND */
+section::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(96,165,250,0.2), transparent);
+  top: -50%;
+  left: -50%;
+  animation: glowMove 10s linear infinite;
 }
 
-/* 📝 HEADINGS */
-h1 {
-  font-size: 1.9rem;
-  margin-bottom: 15px;
+section * {
+  position: relative;
+  z-index: 1;
 }
 
-h2 {
-  font-size: 1.4rem;
-  margin: 20px 0 10px;
-  color: #2563eb;
-}
+/* HEADINGS */
+h1 { font-size: 1.9rem; margin-bottom: 15px; }
+h2 { font-size: 1.4rem; margin: 20px 0 10px; color: #2563eb; }
+h3 { font-size: 1.1rem; color: #4f46e5; }
 
-h3 {
-  font-size: 1.1rem;
-  margin: 15px 0;
-  color: #4f46e5;
-}
-
-/* TEXT */
-p {
-  color: #475569;
-  margin-bottom: 10px;
-}
+p { color: #475569; }
 
 /* LIST */
-ul {
-  padding-left: 20px;
-}
+ul { padding-left: 20px; }
+li { margin-bottom: 6px; }
 
-li {
-  margin-bottom: 6px;
-}
-
-/* 🖼 IMAGE */
+/* IMAGE FLOAT */
 #top-images img {
   width: 80%;
   max-width: 700px;
   border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  animation: float 4s ease-in-out infinite;
 }
 
-/* 📊 TABLE */
+/* TABLE */
 .content-table {
   width: 100%;
   border-collapse: collapse;
@@ -140,7 +127,7 @@ li {
   border: 1px solid #ddd;
 }
 
-/* 🧊 CARDS */
+/* CARDS */
 .cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
@@ -151,30 +138,28 @@ li {
   background: rgba(255,255,255,0.6);
   padding: 20px;
   border-radius: 15px;
-  backdrop-filter: blur(12px);
   transition: 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(96,165,250,0.3);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(96,165,250,0.4);
 }
 
-/* 💼 BUSINESS CASE */
+/* BUSINESS CASE */
 .business-case {
   background: rgba(255,255,255,0.6);
   padding: 20px;
   border-radius: 15px;
   margin-bottom: 20px;
-  backdrop-filter: blur(12px);
   transition: 0.3s;
 }
 
 .business-case:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
 }
 
-/* 💻 CODE */
+/* CODE */
 pre {
   background: #0f172a;
   color: #e2e8f0;
@@ -183,7 +168,7 @@ pre {
   overflow-x: auto;
 }
 
-/* 👥 TEAM */
+/* TEAM */
 #student-details {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
@@ -200,7 +185,6 @@ pre {
   padding: 20px;
   border-radius: 15px;
   text-align: center;
-  backdrop-filter: blur(12px);
   transition: 0.3s;
 }
 
@@ -209,7 +193,7 @@ pre {
   box-shadow: 0 15px 35px rgba(96,165,250,0.3);
 }
 
-/* 🔵 ROUND IMAGE */
+/* ROUND IMAGE */
 .team-image {
   width: 110px;
   height: 110px;
@@ -219,7 +203,7 @@ pre {
   border: 3px solid #60a5fa;
 }
 
-/* 🔘 BUTTON */
+/* BUTTON */
 .btn {
   display: inline-block;
   margin-top: 6px;
@@ -229,14 +213,28 @@ pre {
   border-radius: 8px;
   border: none;
   cursor: pointer;
-  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
 }
 
-.btn:hover {
-  transform: scale(1.05);
+/* BUTTON GLOW */
+.btn::after {
+  content: "";
+  position: absolute;
+  width: 300%;
+  height: 300%;
+  background: rgba(255,255,255,0.2);
+  top: -100%;
+  left: -100%;
+  transform: rotate(45deg);
+  transition: 0.5s;
 }
 
-/* 🌟 FOOTER */
+.btn:hover::after {
+  left: 100%;
+}
+
+/* FOOTER */
 footer {
   text-align: center;
   padding: 20px;
@@ -244,9 +242,29 @@ footer {
   color: white;
 }
 
-/* 📱 MOBILE */
+/* ANIMATIONS */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes glowMove {
+  0% { transform: rotate(0); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeDown {
+  from { opacity:0; transform:translateY(-20px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(20px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+/* MOBILE */
 @media(max-width:600px){
-  section {
-    padding: 20px;
-  }
+  section { padding: 20px; }
 }
