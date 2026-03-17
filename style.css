@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════
-   NAMRUTHA JD — GLASS UI (BLUE THEME)
+   PASTEL + GLOSS UI (PREMIUM LOOK)
 ═══════════════════════════════════════ */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
@@ -10,20 +10,21 @@
   box-sizing: border-box;
 }
 
+/* 🌈 PASTEL BACKGROUND */
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg,#dbeafe,#e0f2fe,#eef2ff);
+  background: linear-gradient(135deg,#e0f2fe,#f0f9ff,#eef2ff,#fdf2f8);
   color: #1e293b;
   line-height: 1.7;
 }
 
-/* HEADER */
+/* ✨ HEADER (GLOSS + GRADIENT) */
 header {
-  background: linear-gradient(135deg,#2563eb,#3b82f6,#60a5fa);
+  background: linear-gradient(135deg,#60a5fa,#7c3aed,#38bdf8);
   color: white;
   text-align: center;
-  padding: 80px 20px;
-  box-shadow: 0 10px 30px rgba(37,99,235,0.3);
+  padding: 90px 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
 }
 
 header h1 {
@@ -36,44 +37,51 @@ header p {
   opacity: 0.9;
 }
 
-/* NAV */
+/* 🔷 NAV GLASS */
 nav {
   position: sticky;
   top: 0;
-  backdrop-filter: blur(12px);
-  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(14px);
+  background: rgba(255,255,255,0.5);
   padding: 12px;
   text-align: center;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.3);
 }
 
 nav a {
-  margin: 0 12px;
+  margin: 0 10px;
   font-weight: 600;
   color: #1e3a8a;
-  padding: 6px 12px;
+  padding: 6px 14px;
   border-radius: 20px;
   transition: 0.3s;
 }
 
 nav a:hover {
-  background: rgba(37,99,235,0.1);
+  background: rgba(96,165,250,0.2);
 }
 
-/* GLASS SECTION */
+/* 💎 GLASS SECTION */
 section {
   max-width: 1100px;
   margin: 40px auto;
   padding: 40px;
 
-  background: rgba(255,255,255,0.6);
-  backdrop-filter: blur(14px);
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(18px);
+
   border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.3);
 
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: 0.3s;
 }
 
-/* HEADINGS */
+section:hover {
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* 📝 HEADINGS */
 h1 {
   font-size: 1.9rem;
   margin-bottom: 15px;
@@ -88,7 +96,7 @@ h2 {
 h3 {
   font-size: 1.1rem;
   margin: 15px 0;
-  color: #1e40af;
+  color: #4f46e5;
 }
 
 /* TEXT */
@@ -100,26 +108,21 @@ p {
 /* LIST */
 ul {
   padding-left: 20px;
-  margin-bottom: 15px;
 }
 
 li {
   margin-bottom: 6px;
 }
 
-/* IMAGE */
-#top-images {
-  text-align: center;
-}
-
+/* 🖼 IMAGE */
 #top-images img {
   width: 80%;
   max-width: 700px;
   border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-/* TABLE */
+/* 📊 TABLE */
 .content-table {
   width: 100%;
   border-collapse: collapse;
@@ -127,7 +130,7 @@ li {
 }
 
 .content-table th {
-  background: #2563eb;
+  background: linear-gradient(135deg,#60a5fa,#7c3aed);
   color: white;
 }
 
@@ -137,7 +140,7 @@ li {
   border: 1px solid #ddd;
 }
 
-/* CARDS */
+/* 🧊 CARDS */
 .cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
@@ -145,28 +148,33 @@ li {
 }
 
 .card {
-  background: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.6);
   padding: 20px;
   border-radius: 15px;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
   transition: 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(37,99,235,0.2);
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(96,165,250,0.3);
 }
 
-/* BUSINESS CASE */
+/* 💼 BUSINESS CASE */
 .business-case {
-  background: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.6);
   padding: 20px;
   border-radius: 15px;
   margin-bottom: 20px;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  transition: 0.3s;
 }
 
-/* CODE */
+.business-case:hover {
+  transform: translateY(-5px);
+}
+
+/* 💻 CODE */
 pre {
   background: #0f172a;
   color: #e2e8f0;
@@ -175,7 +183,7 @@ pre {
   overflow-x: auto;
 }
 
-/* TEAM */
+/* 👥 TEAM */
 #student-details {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
@@ -188,49 +196,55 @@ pre {
 }
 
 .team-member {
-  background: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.6);
   padding: 20px;
   border-radius: 15px;
   text-align: center;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
   transition: 0.3s;
 }
 
 .team-member:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(96,165,250,0.3);
 }
 
-/* ROUND IMAGE */
+/* 🔵 ROUND IMAGE */
 .team-image {
   width: 110px;
   height: 110px;
   border-radius: 50%;
   object-fit: cover;
   margin: 0 auto 10px;
-  border: 3px solid #2563eb;
+  border: 3px solid #60a5fa;
 }
 
-/* BUTTON */
+/* 🔘 BUTTON */
 .btn {
   display: inline-block;
   margin-top: 6px;
-  padding: 6px 12px;
-  background: linear-gradient(135deg,#2563eb,#3b82f6);
+  padding: 7px 14px;
+  background: linear-gradient(135deg,#60a5fa,#7c3aed);
   color: white;
   border-radius: 8px;
   border: none;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-/* FOOTER */
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* 🌟 FOOTER */
 footer {
   text-align: center;
   padding: 20px;
-  background: linear-gradient(135deg,#2563eb,#3b82f6);
+  background: linear-gradient(135deg,#60a5fa,#7c3aed);
   color: white;
 }
 
-/* MOBILE */
+/* 📱 MOBILE */
 @media(max-width:600px){
   section {
     padding: 20px;
