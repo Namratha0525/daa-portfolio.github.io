@@ -883,5 +883,24 @@ Total Distance: 15 units</p>
     <footer>
         <p>&copy; 2024 Namrutha JD - All Rights Reserved</p>
     </footer>
+        <script src="https://unpkg.com/scrollreveal"></script>
+
+<script>
+// Scroll Animations
+ScrollReveal({
+  distance: '60px',
+  duration: 1200,
+  delay: 200,
+  reset: false
+});
+
+ScrollReveal().reveal('header h1', { origin: 'top' });
+ScrollReveal().reveal('header p', { origin: 'bottom' });
+ScrollReveal().reveal('section', { origin: 'bottom', interval: 200 });
+ScrollReveal().reveal('.card', { interval: 150 });
+ScrollReveal().reveal('.business-case', { origin: 'left', interval: 200 });
+ScrollReveal().reveal('.team-member', { origin: 'right', interval: 200 });
+ScrollReveal().reveal('#top-images img', { scale: 0.8 });
+</script>
 </body>
 </html>
